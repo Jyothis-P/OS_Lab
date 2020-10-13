@@ -6,7 +6,7 @@ process_id = os.fork()
 if (process_id > 0):
     n = str(input("enter the numbers"))
     os.close(r)
-    os.write(w, n)
+    os.write(w, n.encode())
 else:
     a = ""
     n = os.read(r, 200)
