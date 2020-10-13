@@ -64,3 +64,4 @@ if __name__ == '__main__':
         print('c~Printing palindromes...')
         for s in msg.split('~'):
             display_if_palindrome(s)
+        print("")
