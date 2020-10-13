@@ -1,5 +1,15 @@
 import os
 
+
+def reverse(straight):
+    return "".join(reversed(straight))
+
+
+def display_if_palindrome(input_str):
+    if input_str == reverse(input_str):
+        print(input_str)
+
+
 print('Python program to explain os.pipe() method ')
 
 r, w = os.pipe()
@@ -32,4 +42,6 @@ else:
     print("\nChild Process is reading")
     r = os.fdopen(r)
     msg = r.read()
+    for s in msg.split('~'):
+        display_if_palindrome(s)
     print("Read text:", msg)
