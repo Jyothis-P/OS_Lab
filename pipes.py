@@ -6,7 +6,7 @@ import time
 
 
 def reverse(straight):
-    return ''.join(reversed(straight))
+    return straight[::-1]
 
 
 def display_if_palindrome(input_str):
@@ -15,29 +15,22 @@ def display_if_palindrome(input_str):
 
 
 if __name__ == '__main__':
-    print('\nQuestion\n')
-    print('A parent process sends n strings to a child process. The child process displays all the palindromes. '
-          'Implement this using Pipes.\n')
 
     # Create pipe. [ We'll be writing from the parent process and reading from the child process. ]
     r, w = os.pipe()
 
     # Get the number of strings to send.
-    n = int(input("How many strings? "))
+    n = int(input("Enter number of strings: "))
 
     # Store the strings in an array.
     strings = []
     for _ in range(n):
-        strings.append(input("Enter string: "))
+        strings.append(input(f'Enter string {_ + 1}: '))
 
     # Encode the strings for sending through pipe.
     message = '~'.join(strings)
     message = message.encode()
 
-    print('\nCreating child process.')
-    print('Parent -> p~')
-    print('Child -> c~')
-    print('=====================================================\n')
     # Create child process.
     pid = os.fork()
 
@@ -46,10 +39,9 @@ if __name__ == '__main__':
         # Close the read pipe.
         os.close(r)
 
-        print("p~Parent process sending the strings...")
+        print("Parent process writing to pipe.")
         # Writing into the pipe.
         os.write(w, message)
-        print('p~Strings Sent.')
         # Wait one second so that the output doesn't look weird.
         time.sleep(1)
 
@@ -57,11 +49,10 @@ if __name__ == '__main__':
         # Close the write pipe.
         os.close(w)
 
-        print("\nc~Child process waiting for messages.")
         r = os.fdopen(r)
         msg = r.read()
-        print('c~Message received.')
-        print('c~Printing palindromes...')
+        print('Message received by child process.')
+        print('Palindromes are...')
         for s in msg.split('~'):
             display_if_palindrome(s)
         print("")

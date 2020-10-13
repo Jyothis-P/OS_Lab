@@ -1,5 +1,5 @@
 def reverse(straight):
-    return "".join(reversed(straight))
+    return straight[::-1]
 
 
 print(reverse('HaiH'))
