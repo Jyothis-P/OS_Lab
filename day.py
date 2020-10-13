@@ -10,6 +10,7 @@ if (process_id > 0):
 else:
     a = ""
     n = os.read(r, 200)
+    n = n.decode()
     print(type(n))
     print(n)
     num = []
