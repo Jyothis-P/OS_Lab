@@ -33,6 +33,10 @@ if __name__ == '__main__':
     message = '~'.join(strings)
     message = message.encode()
 
+    print('Creating child process.')
+    print('Parent -> p~')
+    print('Child -> c~')
+    print('=====================================================')
     # Create child process.
     pid = os.fork()
 
