@@ -15,8 +15,9 @@ def display_if_palindrome(input_str):
 
 
 if __name__ == '__main__':
+    print('\nQuestion\n')
     print('A parent process sends n strings to a child process. The child process displays all the palindromes. '
-          'Implement this using Pipes.')
+          'Implement this using Pipes.\n')
 
     # Create pipe. [ We'll be writing from the parent process and reading from the child process. ]
     r, w = os.pipe()
@@ -33,10 +34,10 @@ if __name__ == '__main__':
     message = '~'.join(strings)
     message = message.encode()
 
-    print('Creating child process.')
+    print('\nCreating child process.')
     print('Parent -> p~')
     print('Child -> c~')
-    print('=====================================================')
+    print('=====================================================\n')
     # Create child process.
     pid = os.fork()
 
