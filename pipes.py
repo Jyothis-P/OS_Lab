@@ -21,6 +21,10 @@ if pid > 0:
     print("Parent process is writing")
     text = b"Hello child process"
     os.write(w, text)
+    text = b"Test 2"
+    os.write(w, text)
+    text = b"Test 3"
+    os.write(w, text)
     print("Written text:", text.decode())
 
 
@@ -34,4 +38,6 @@ else:
     # Read the text written by parent process
     print("\nChild Process is reading")
     r = os.fdopen(r)
+    print("Read text:", r.read())
+    print("Read text:", r.read())
     print("Read text:", r.read())
