@@ -10,6 +10,8 @@ if (process_id > 0):
 else:
     a = ""
     n = os.read(r, 200)
+    print(type(n))
+    print(n)
     num = []
     sum = 0
     avg = 0
