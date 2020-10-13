@@ -12,10 +12,7 @@ else:
     n = r.read()
     sum = 0
     avg = 0
-    num = n.split(',')
-    num = num[0]
-    for i in range(len(num)):
-        num[i] = int(num[i])
+    num = map(int, n.split(','))
     for i in range(len(num)):
         sum = num[i] + sum
     avg = sum / len(num)
