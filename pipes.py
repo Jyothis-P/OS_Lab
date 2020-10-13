@@ -2,42 +2,34 @@ import os
 
 print('Python program to explain os.pipe() method ')
 
-# Create a pipe
 r, w = os.pipe()
 
-# Create a child process
+n = int(input("How many strings? "))
+strings = []
+for _ in range(n):
+    strings.append(input("Enter string: "))
+
+message = '~'.join(strings)
+message = message.encode()
+
 pid = os.fork()
 
-# pid greater than 0 represents
-# the parent process
 if pid > 0:
     print('Parent:', pid)
 
-    # This is the parent process
-    # Closes file descriptor r
     os.close(r)
 
-    # Write some text to file descriptor w
     print("Parent process is writing")
-    text = b"Hello child process"
-    os.write(w, text)
-    text = b"Test 2"
-    os.write(w, text)
-    text = b"Test 3"
-    os.write(w, text)
-    print("Written text:", text.decode())
+    os.write(w, message)
+    print("Written text:", message.decode())
 
 
 else:
     print('Child:', pid)
 
-    # This is the parent process
-    # Closes file descriptor w
     os.close(w)
 
-    # Read the text written by parent process
     print("\nChild Process is reading")
     r = os.fdopen(r)
-    print("Read text:", r.read())
-    print("Read text:", r.read())
-    print("Read text:", r.read())
+    msg = r.read()
+    print("Read text:", msg)
