@@ -5,7 +5,7 @@ len=${#st}
 echo
 echo "Length of the string is $len"
 rev=""
-for ((i = 0; i < $len; i++)); do
+for ((i = 0; i < len; i++)); do
   rev=$rev${st:$((len - i - 1)):1}
   # echo "${st:$((len - i - 1)):1}"
 done
