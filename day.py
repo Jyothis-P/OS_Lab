@@ -9,7 +9,7 @@ if (process_id > 0):
     os.write(w, n.encode())
 else:
     a = ""
-    n = r.read()
+    n = os.read(r, 200)
     sum = 0
     avg = 0
     num = map(int, n.split(','))
