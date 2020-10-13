@@ -9,14 +9,10 @@ if (process_id > 0):
     os.write(w, n.encode())
 else:
     a = ""
-    n = os.read(r, 200)
-    n = n.decode()
-    print(type(n))
-    print(n)
-    num = []
+    n = r.read()
     sum = 0
     avg = 0
-    num.append(n.split(','))
+    num = n.split(',')
     num = num[0]
     for i in range(len(num)):
         num[i] = int(num[i])
