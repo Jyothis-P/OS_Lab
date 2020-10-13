@@ -6,7 +6,7 @@ import time
 
 
 def reverse(straight):
-    return 'c~' + ''.join(reversed(straight))
+    return ''.join(reversed(straight))
 
 
 def display_if_palindrome(input_str):
