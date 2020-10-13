@@ -31,6 +31,7 @@ if __name__ == '__main__':
     message = '~'.join(strings)
     message = message.encode()
 
+    print("")
     # Create child process.
     pid = os.fork()
 
@@ -43,6 +44,7 @@ if __name__ == '__main__':
         # Writing into the pipe.
         os.write(w, message)
         # Wait one second so that the output doesn't look weird.
+        print("")
         time.sleep(1)
 
     else:
