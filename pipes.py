@@ -32,6 +32,7 @@ if pid > 0:
     print("Parent process is writing")
     os.write(w, message)
     print("Written text:", message.decode())
+    os.join()
 
 
 else:
