@@ -18,6 +18,10 @@ if __name__ == '__main__':
 
     # Create pipe. [ We'll be writing from the parent process and reading from the child process. ]
     r, w = os.pipe()
+    print('r type:', type(r))
+    print('w type:', type(w))
+    print(r)
+    print(w)
 
     # Get the number of strings to send.
     n = int(input("Enter number of strings: "))

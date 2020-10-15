@@ -13,7 +13,8 @@ echo
 echo "Original String: $st"
 echo "Reverse: $rev"
 echo
-if [ $st == $rev ]; then
+if [ $st == $rev ]
+then
   echo "String is a Palindrome."
 else
   echo "String is not a Palindrome"
